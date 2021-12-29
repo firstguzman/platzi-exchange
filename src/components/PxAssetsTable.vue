@@ -32,11 +32,25 @@
           <b>#{{ asset.rank }}</b>
         </td>
         <td>
-          {{ asset.name }}
+          <router-link
+            class="hover:underline text-green-600"
+            :to="{ name: 'coin-detail', params: { id: asset.id } }"
+          >
+            {{ asset.name }}
+          </router-link>
+          <small class="ml-1 text-gray-500">
+            {{ asset.symbol }}
+          </small>
         </td>
         <td>{{ asset.priceUsd | dollar }}</td>
         <td>{{ asset.marketCapUsd | dollar }}</td>
-        <td :class="asset.changePercent24Hr.includes('-') ? 'text-red-600' : 'text-green-600'">
+        <td
+          :class="
+            asset.changePercent24Hr.includes('-')
+              ? 'text-red-600'
+              : 'text-green-600'
+          "
+        >
           {{ asset.changePercent24Hr | percent }}
         </td>
         <td class="hidden sm:block"></td>
