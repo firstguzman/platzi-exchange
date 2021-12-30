@@ -6,9 +6,11 @@
     <beat-loader
       :loading="isLoading"
       :color="'#68d391'"
-      :size="100"
+      :size="8"
     ></beat-loader>
-    <slot v-show="isLoading"></slot>
+    <p v-show="!isLoading">
+      <slot></slot>
+    </p>
   </button>
 </template>
 
